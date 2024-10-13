@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "watch": "tsc -w",
+    "build": "concurrently \"tsc\" \"npm run copy-files\" ",
+    "server": "nodemon ./dist/index.js",
+    "dev": "concurrently \"npm run watch\" \"npm run server\" \"npm run watch-views\"",
+    "copy-files": "copyfiles -u 1 \"src/views/**/*\" dist/",
+    "watch-views": "nodemon --watch src/views -e ejs -x \"npm run copy-files\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "nodemon": "^3.1.7",
+    "typescript": "^5.6.2"
+  }
+}
