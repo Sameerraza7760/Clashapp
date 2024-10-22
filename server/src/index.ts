@@ -14,6 +14,7 @@ app.get("/", (req: Request, res: Response) => {
   return res.send("Hey, it's working...");
 });
 
+
 app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
 });
